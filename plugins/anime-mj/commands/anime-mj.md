@@ -210,7 +210,80 @@ Options:
 2. Use URL in subsequent prompts with `--cref [URL]`
 3. Adjust `--cw` based on how much variation you want
 
-### Step 7: Build and Output Prompt
+### Step 7: Animation (Optional)
+
+Ask if the user wants to animate their image:
+```
+Question: "Would you like to animate this image?"
+Options:
+- Yes, animate it (proceed to animation workflow)
+- No, image only (skip to final output)
+```
+
+> **Important**: Video generation requires the **Midjourney web app** (midjourney.com). Discord bot does not support video generation.
+
+**If Yes**, ask about motion style:
+```
+Question: "What type of motion/animation style?"
+Options:
+- Action (dynamic movement, speed effects, high energy)
+- Slice-of-life (gentle breeze, subtle movement, peaceful)
+- Dramatic (slow zoom, emotional moment, cinematic)
+- Combat (fast motion, impact frames, explosive)
+- Custom (describe your own motion)
+```
+
+**Then ask about camera motion:**
+```
+Question: "What camera motion do you want?"
+Options:
+- Pan (horizontal/vertical tracking movement)
+- Zoom (push in or pull out)
+- Orbit (circular movement around subject)
+- Static (subtle character animation only)
+```
+
+**Ask about motion intensity:**
+```
+Question: "How intense should the motion be?"
+Options:
+- Low (subtle, peaceful, cinemagraph-style)
+- Medium (natural, balanced movement)
+- High (dynamic, energetic, action-focused)
+```
+
+**Optional - Loop animation:**
+```
+Question: "Do you want a seamless loop?"
+Options:
+- Yes (start/end frames match)
+- No (standard animation)
+```
+
+**Animation Prompt Templates:**
+
+| Style | Template |
+|-------|----------|
+| Action | `[Image URL] dynamic movement, action lines, speed effects, high motion --video` |
+| Slice-of-life | `[Image URL] gentle breeze, hair flowing softly, subtle movement, peaceful --video --raw` |
+| Dramatic | `[Image URL] slow camera push, emotional moment, cinematic, medium motion --video` |
+| Combat | `[Image URL] fast motion, impact frames, explosive movement, high motion --video` |
+| Loop | `[Image URL] seamless loop, [motion description], subtle --video loop` |
+
+**Camera Motion Keywords:**
+
+| Motion | Keywords |
+|--------|----------|
+| Pan Left/Right | "camera pans left", "tracking right", "horizontal movement" |
+| Pan Up/Down | "camera tilts up", "vertical pan", "looking down" |
+| Zoom In | "camera pushes in", "zoom to face", "dramatic push" |
+| Zoom Out | "camera pulls back", "wide reveal", "zoom out" |
+| Orbit | "camera orbits around", "360 rotation", "circular movement" |
+| Static | "subtle movement", "breathing motion", "minimal camera" |
+
+**Full library**: See [docs/video-animation.md](../docs/video-animation.md) for complete animation reference.
+
+### Step 8: Build and Output Prompt
 
 Construct the prompt following this structure:
 1. **Subject** - Character/scene description
@@ -356,6 +429,23 @@ neon lights, rain, holographic displays, cybernetic, dystopian cityscape, night 
 | `--sref` | Style reference code |
 | `--sw` | Style weight (0-1000, default 100) |
 | `--cref` | Character reference |
+| `--cw` | Character weight (0-100) |
+| `--video` | Enable video generation (web app only) |
+
+### Video Parameters
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `--video` | Enable video generation | Required with image URL |
+| `--raw` | Reduce AI interpretation | For precise motion control |
+| Motion Level | Movement intensity | "low motion" / "high motion" in prompt |
+| Loop | Seamless loop animation | Add "loop" to prompt |
+
+**Video Specifications:**
+- Duration: 5 seconds (extendable to 21s)
+- Resolution: 480p (Standard) / 720p (Pro/Mega)
+- Frame Rate: 24 FPS
+- Platform: Web app only (not Discord)
 
 ### SREF Parameter Details
 
@@ -476,6 +566,31 @@ A young mage casting a spell in a magical forest, purple energy swirling, dramat
 ### Using Character Reference (Outfit Change)
 ```
 A young mage in casual modern clothes at a coffee shop, relaxed pose, slice of life --niji 6 --style cute --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 50
+```
+
+### Animation - Action Scene
+```
+[Image URL] dynamic camera tracking, speed lines effect, impact frame, explosive movement, high motion --video
+```
+
+### Animation - Peaceful Moment
+```
+[Image URL] gentle breeze through hair, soft fabric movement, peaceful atmosphere, low motion --video --raw
+```
+
+### Animation - Dramatic Zoom
+```
+[Image URL] slow cinematic zoom to face, emotional intensity, dramatic lighting, medium motion --video
+```
+
+### Animation - Seamless Loop
+```
+[Image URL] seamless loop, hair gently swaying, soft breathing motion, subtle --video loop --raw
+```
+
+### Animation - Combat
+```
+[Image URL] fast motion blur, impact frame, explosive energy, dynamic camera shake --video
 ```
 
 ---

@@ -22,6 +22,8 @@ Use this skill when users:
 9. **Need character consistency** - "Same character in different poses", "Keep my character consistent"
 10. **Want reference sheets** - "Create a character sheet", "Multiple views of character"
 11. **Ask about --cref** - "How do I use character reference?", "What is --cref?"
+12. **Want to animate images** - "Animate my image", "Make it move", "Create video"
+13. **Ask about video/animation** - "How do I animate?", "What is --video?", "Motion prompts"
 
 ## When NOT to Activate
 
@@ -74,6 +76,8 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 - `--cref` (character reference)
 - `--cw` (character weight 0-100)
 - `--oref` (omni reference, V7)
+- `--video` (enable video generation, web app only)
+- `--raw` (precise motion control for video)
 
 ### Character Consistency Support
 
@@ -87,6 +91,27 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 - `--cw 100`: Full character (face + hair + clothes)
 - `--cw 50`: Moderate similarity (different outfit, same character)
 - `--cw 0`: Face only (complete costume change)
+
+### Video/Animation Support
+
+> **Note**: Video generation requires Midjourney web app (not Discord bot).
+
+**Motion Styles:**
+- Action (dynamic movement, speed effects)
+- Slice-of-life (gentle breeze, subtle movement)
+- Dramatic (slow zoom, emotional moments)
+- Combat (fast motion, impact frames)
+
+**Camera Motion:**
+- Pan (left/right/up/down tracking)
+- Zoom (push in, pull out)
+- Orbit (circular movement around subject)
+- Static (subtle character animation only)
+
+**Motion Levels:**
+- Low: Subtle, peaceful, cinemagraph-style
+- Medium: Natural, balanced movement
+- High: Dynamic, energetic, action-focused
 
 ### SREF Code Library (40+ Curated Codes)
 
@@ -123,7 +148,13 @@ Ask if user needs character consistency:
 - Use existing reference → get URL and suggest --cw weight
 - Skip for single images
 
-### Step 7: Build Prompt
+### Step 7: Animation (Optional)
+Ask if user wants to animate their image:
+- Yes → guide through motion style, camera motion, intensity
+- No → skip to final output
+- Note: Web app only (not Discord)
+
+### Step 8: Build Prompt
 Construct and output the ready-to-use Niji prompt.
 
 ## Example Outputs
@@ -166,6 +197,21 @@ character reference sheet, young female sorcerer with long silver hair and purpl
 ### Using Character Reference
 ```
 A young sorcerer casting a spell in a magical forest, purple energy swirling, dramatic lighting --niji 6 --style expressive --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 100
+```
+
+### Animation - Action
+```
+[Image URL] dynamic camera tracking, speed lines effect, impact frame, explosive movement, high motion --video
+```
+
+### Animation - Peaceful
+```
+[Image URL] gentle breeze through hair, soft fabric movement, peaceful atmosphere, low motion --video --raw
+```
+
+### Animation - Loop
+```
+[Image URL] seamless loop, hair gently swaying, soft breathing motion, subtle --video loop --raw
 ```
 
 ## Key Principles

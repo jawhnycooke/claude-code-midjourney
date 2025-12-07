@@ -8,6 +8,7 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 - **14 anime studios** with distinct aesthetics
 - **40+ curated SREF codes** for consistent visual styles
 - **Character consistency workflows** with reference sheet templates
+- **Video/animation support** with motion templates and camera guides
 - **6 genre categories**: Shonen, Seinen, Shoujo, Slice of Life, Mecha, Horror
 - **Full Niji 6 support** with all style modes
 - **Interactive prompt building** with guided questions
@@ -38,7 +39,8 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 5. **Choose aspect ratio**
 6. **Apply SREF code** (optional - for consistent visual style)
 7. **Apply character reference** (optional - for character consistency)
-8. **Output** ready-to-use prompt
+8. **Animate image** (optional - for video/animation, web app only)
+9. **Output** ready-to-use prompt
 
 ## Supported Artists
 
@@ -111,6 +113,8 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 | `--cref` | Character reference |
 | `--cw` | Character weight (0-100) |
 | `--oref` | Omni reference (V7) |
+| `--video` | Enable video generation (web app only) |
+| `--raw` | Precise motion control for video |
 
 ## SREF Code Library
 
@@ -206,9 +210,47 @@ Create consistent characters across multiple images using reference sheets and t
 | V7 | `--oref` | Preferred in V7 |
 | V7 | `--cref` | Still works but may be deprecated |
 
+## Video/Animation
+
+Animate your anime images using Midjourney's V1 video model. See [docs/video-animation.md](./docs/video-animation.md) for full guide.
+
+> **Note**: Video generation requires the Midjourney **web app** (midjourney.com). Discord bot does not support video.
+
+### Motion Styles
+
+| Style | Description |
+|-------|-------------|
+| Action | Dynamic movement, speed effects, high energy |
+| Slice-of-life | Gentle breeze, subtle movement, peaceful |
+| Dramatic | Slow zoom, emotional moments, cinematic |
+| Combat | Fast motion, impact frames, explosive |
+
+### Camera Motion
+
+| Motion | Description |
+|--------|-------------|
+| Pan | Horizontal/vertical tracking movement |
+| Zoom | Push in or pull out |
+| Orbit | Circular movement around subject |
+| Static | Subtle character animation only |
+
+### Animation Examples
+
+```
+# Action scene
+[Image URL] dynamic camera tracking, speed lines, impact frame, high motion --video
+
+# Peaceful moment
+[Image URL] gentle breeze, hair flowing, subtle movement, low motion --video --raw
+
+# Seamless loop
+[Image URL] seamless loop, soft breathing, subtle --video loop --raw
+```
+
 ## Documentation
 
 - [SREF Code Library](./docs/sref-library.md) - Full curated library with 40+ anime style codes
+- [Video/Animation Guide](./docs/video-animation.md) - Complete animation reference
 - [Reference Index](./docs/README.md) - Documentation index
 
 ## External Resources
