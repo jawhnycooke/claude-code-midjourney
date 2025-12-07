@@ -1,11 +1,12 @@
 # Anime-MJ: Anime/Manga Prompt Builder
 
-A Claude Code plugin that generates optimized anime and manga prompts for Midjourney's Niji mode. Features 30+ manga artists, 14 anime studios, and comprehensive genre support.
+A Claude Code plugin that generates optimized anime and manga prompts for Midjourney's Niji mode. Features 30+ manga artists, 14 anime studios, 40+ curated SREF codes, and comprehensive genre support.
 
 ## Features
 
 - **30+ manga/anime artists** with style keywords
 - **14 anime studios** with distinct aesthetics
+- **40+ curated SREF codes** for consistent visual styles
 - **6 genre categories**: Shonen, Seinen, Shoujo, Slice of Life, Mecha, Horror
 - **Full Niji 6 support** with all style modes
 - **Interactive prompt building** with guided questions
@@ -34,7 +35,8 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 3. **Describe your subject**
 4. **Select Niji style mode** (cute/expressive/scenic/original)
 5. **Choose aspect ratio**
-6. **Output** ready-to-use prompt
+6. **Apply SREF code** (optional - for consistent visual style)
+7. **Output** ready-to-use prompt
 
 ## Supported Artists
 
@@ -102,8 +104,42 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 | `--style original` | Classic anime |
 | `--ar` | Aspect ratio |
 | `--s` | Stylize (0-1000) |
-| `--sref` | Style reference |
+| `--sref` | Style reference code |
+| `--sw` | Style weight (0-1000) |
 | `--cref` | Character reference |
+
+## SREF Code Library
+
+Curated SREF codes for consistent anime visual styles. See [docs/sref-library.md](./docs/sref-library.md) for full library.
+
+### Quick Reference
+
+| Category | Code | Name |
+|----------|------|------|
+| Ghibli | `3408846050` | Ghibli Vibes |
+| Ghibli | `918084796` | Anime Serenity |
+| Dynamic | `3730983883` | Dynamic Comic |
+| Dark | `416523183` | Anime Vampire |
+| Dark | `229704573` | Dark Warrior |
+| Shoujo | `2178024008` | Iridescence |
+| Retro | `16809792746` | 80s Retro |
+| Modern | `65` | Neo-Noir |
+
+### SREF Usage
+
+```
+# Basic usage
+--sref 3408846050
+
+# With style weight
+--sref 3408846050 --sw 300
+
+# Blend two codes
+--sref 3408846050 918084796
+
+# Weighted blend
+--sref 3408846050::2 918084796::1
+```
 
 ## Example Outputs
 
@@ -121,6 +157,22 @@ A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miur
 ```
 A magical girl mid-transformation with sparkles, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors --niji 6 --style cute --ar 9:16 --s 600
 ```
+
+### With SREF Code
+```
+A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+```
+
+## Documentation
+
+- [SREF Code Library](./docs/sref-library.md) - Full curated library with 40+ anime style codes
+- [Reference Index](./docs/README.md) - Documentation index
+
+## External Resources
+
+- [sref-midjourney.com](https://sref-midjourney.com/style/niji) - 5,500+ SREF codes
+- [Midlibrary.io](https://midlibrary.io/) - 2,800+ curated codes
+- [promptsref.com/niji-6](https://promptsref.com/version/niji-6) - Niji-specific collection
 
 ## License
 

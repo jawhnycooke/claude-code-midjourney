@@ -116,7 +116,57 @@ Options:
 - 21:9 (ultrawide - cinematic)
 ```
 
-### Step 5: Build and Output Prompt
+### Step 5: Style Reference (Optional)
+
+Ask if the user wants to apply a style reference for consistent aesthetics:
+```
+Question: "Would you like to apply a style reference (SREF) for a specific visual style?"
+Options:
+- Browse curated library (show style categories)
+- Enter custom SREF code (if user has their own)
+- Skip (no style reference needed)
+```
+
+**If Browse Library selected**, offer categories based on genre:
+```
+Question: "Which style category?"
+Options:
+- Ghibli/Soft (warm, nostalgic, nature-inspired)
+- Shonen/Dynamic (bold, action-oriented, energetic)
+- Seinen/Dark (moody, atmospheric, detailed)
+- Shoujo/Elegant (sparkles, soft lighting, romantic)
+- Retro (80s/90s anime aesthetic)
+- Modern/Clean (contemporary anime look)
+```
+
+**Top SREF Codes Quick Reference:**
+
+| Category | Code | Name | Description |
+|----------|------|------|-------------|
+| Ghibli | `3408846050` | Ghibli Vibes | Studio Ghibli atmospheric quality |
+| Ghibli | `918084796` | Anime Serenity | Peaceful, contemplative mood |
+| Dynamic | `3730983883` | Dynamic Comic | Metallic, action-oriented |
+| Dynamic | `910384726` | Vibrant Manga | Classic manga energy |
+| Dark | `416523183` | Anime Vampire | Dark, gothic styling |
+| Dark | `229704573` | Dark Warrior | Intense, dramatic |
+| Shoujo | `2178024008` | Iridescence | Shimmering, magical effects |
+| Retro | `16809792746` | 80s Retro | Classic 80s OVA look |
+| Retro | `4292182277` | Dark OVA | Dark 80s/90s aesthetic |
+| Modern | `65` | Neo-Noir | Modern noir with anime flair |
+
+**Full library**: See [docs/sref-library.md](../docs/sref-library.md) for 40+ codes.
+
+**Ask about style weight:**
+```
+Question: "How strong should the style reference be?"
+Options:
+- Light (--sw 100, subtle influence)
+- Medium (--sw 300, noticeable style)
+- Strong (--sw 500, dominant style)
+- Very Strong (--sw 750, style-first)
+```
+
+### Step 6: Build and Output Prompt
 
 Construct the prompt following this structure:
 1. **Subject** - Character/scene description
@@ -259,7 +309,18 @@ neon lights, rain, holographic displays, cybernetic, dystopian cityscape, night 
 | `--ar` | Aspect ratio |
 | `--s` | Stylize (0-1000, default 100) |
 | `--sref` | Style reference code |
+| `--sw` | Style weight (0-1000, default 100) |
 | `--cref` | Character reference |
+
+### SREF Parameter Details
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `--sref [code]` | Apply style reference | `--sref 3408846050` |
+| `--sw [0-1000]` | Control style influence | `--sw 300` |
+| `--sref [a] [b]` | Blend two codes | `--sref 123 456` |
+| `--sref [a]::2 [b]::1` | Weighted blend | `--sref 123::2 456::1` |
+| `--sv 4` | Use legacy V7 SREF model | For old code compatibility |
 
 ---
 
@@ -308,6 +369,16 @@ A high school girl gazing out a classroom window at cherry blossoms, Kyoto Anima
 ### Retro 80s Anime
 ```
 A space pilot in a vintage cockpit with analog displays and warning lights, 80s anime style, retro anime, Leiji Matsumoto influence, space opera, cel-shaded, film grain, nostalgic --niji 6 --style original --ar 4:3 --s 500
+```
+
+### With SREF Code (Ghibli Style)
+```
+A young girl walking through a sunlit meadow filled with wildflowers, Studio Ghibli style, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+```
+
+### With SREF Code (Dark Fantasy)
+```
+A knight standing before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --style expressive --ar 2:3 --sref 416523183 --sw 400
 ```
 
 ---

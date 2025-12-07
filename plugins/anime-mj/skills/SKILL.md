@@ -1,6 +1,6 @@
 ---
 name: anime-mj-prompt-builder
-description: Generates anime/manga prompts for Midjourney Niji mode with 30+ artist styles
+description: Generates anime/manga prompts for Midjourney Niji mode with 30+ artist styles, SREF code library
 ---
 
 # Anime/Manga Prompt Builder Skill
@@ -17,6 +17,8 @@ Use this skill when users:
 4. **Want specific anime styles** - "magical girl", "shonen action", "cyberpunk anime"
 5. **Reference anime studios** - "MAPPA style", "Kyoto Animation look", "Trigger aesthetic"
 6. **Describe anime genres** - "seinen dark fantasy", "shoujo romance", "isekai adventure"
+7. **Ask about SREF codes** - "What SREF code for Ghibli?", "Anime style reference codes"
+8. **Want consistent styling** - "Make it look like...", "Same style as...", "Visual consistency"
 
 ## When NOT to Activate
 
@@ -65,7 +67,20 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 - `--ar` (aspect ratio)
 - `--s` (stylize 0-1000)
 - `--sref` (style reference)
+- `--sw` (style weight 0-1000)
 - `--cref` (character reference)
+
+### SREF Code Library (40+ Curated Codes)
+
+**Categories:**
+- **Ghibli/Soft**: Warm, nostalgic (codes: 3408846050, 918084796, 3161604773...)
+- **Shonen/Dynamic**: Bold, action-oriented (codes: 3730983883, 910384726...)
+- **Seinen/Dark**: Moody, atmospheric (codes: 416523183, 229704573...)
+- **Shoujo/Elegant**: Sparkles, soft lighting (codes: 2178024008...)
+- **Retro**: 80s/90s aesthetic (codes: 16809792746, 4292182277...)
+- **Modern/Clean**: Contemporary look (codes: 65, 20...)
+
+**Full library**: See `docs/sref-library.md` for complete reference.
 
 ## Interaction Pattern
 
@@ -81,7 +96,10 @@ Ask about character, scene, action, and atmosphere.
 ### Step 4: Technical Options
 Determine Niji style mode and aspect ratio.
 
-### Step 5: Build Prompt
+### Step 5: Style Reference (Optional)
+Offer SREF codes from the curated library based on genre.
+
+### Step 6: Build Prompt
 Construct and output the ready-to-use Niji prompt.
 
 ## Example Outputs
@@ -104,6 +122,16 @@ A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, 
 ### Cyberpunk
 ```
 A courier on a motorcycle through neon-lit streets, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery --niji 6 --style expressive --ar 21:9 --s 750
+```
+
+### With SREF Code (Ghibli)
+```
+A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+```
+
+### With SREF Code (Dark)
+```
+A knight before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --style expressive --ar 2:3 --sref 416523183 --sw 400
 ```
 
 ## Key Principles
