@@ -14,10 +14,10 @@
     "prompt-engineering",
     "ai-art"
   ],
-  "homepage": "https://github.com/jawhnycooke/claude-code-midjourney",
+  "homepage": "https://github.com/jawhnycooke/claude-code-anime-mj",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jawhnycooke/claude-code-midjourney.git"
+    "url": "https://github.com/jawhnycooke/claude-code-anime-mj.git"
   },
   "license": "MIT"
 }

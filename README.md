@@ -8,7 +8,7 @@ A Claude Code plugin specialized in generating anime and manga art using Midjour
 
 ```bash
 # Add the marketplace
-claude plugin marketplace add https://github.com/jawhnycooke/claude-code-midjourney
+claude plugin marketplace add https://github.com/jawhnycooke/claude-code-anime-mj
 
 # Install the plugin
 claude plugin install anime-mj
@@ -20,12 +20,12 @@ claude plugin install anime-mj
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/jawhnycooke/claude-code-midjourney.git
+git clone https://github.com/jawhnycooke/claude-code-anime-mj.git
 ```
 
 2. Copy the plugin to your Claude Code plugins directory:
 ```bash
-cp -r claude-code-midjourney/plugins/anime-mj ~/.claude/plugins/
+cp -r claude-code-anime-mj/plugins/anime-mj ~/.claude/plugins/
 ```
 
 3. Restart Claude Code
@@ -163,7 +163,7 @@ A lone warrior in black armor facing a massive demon in a gothic cathedral, Bers
 ## Repository Structure
 
 ```
-claude-code-midjourney/
+claude-code-anime-mj/
 ├── plugins/
 │   └── anime-mj/
 │       ├── .claude-plugin/
