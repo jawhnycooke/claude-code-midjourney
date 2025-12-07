@@ -102,10 +102,7 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 | Parameter | Description |
 |-----------|-------------|
 | `--niji 6` | Required for anime style |
-| `--style cute` | Kawaii, adorable |
-| `--style expressive` | Mature, dramatic |
-| `--style scenic` | Environmental focus |
-| `--style original` | Classic anime |
+| `--style raw` | Less stylized, more literal output (optional) |
 | `--ar` | Aspect ratio |
 | `--s` | Stylize (0-1000) |
 | `--sref` | Style reference code |
@@ -114,7 +111,8 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 | `--cw` | Character weight (0-100) |
 | `--oref` | Omni reference (V7) |
 | `--video` | Enable video generation (web app only) |
-| `--raw` | Precise motion control for video |
+
+> **Version Note**: Style modes (`--style cute`, `--style expressive`, `--style scenic`, `--style original`) are only available in **Niji 5**. Niji 6 uses default anime style or `--style raw`.
 
 ## SREF Code Library
 
@@ -153,22 +151,22 @@ Curated SREF codes for consistent anime visual styles. See [docs/sref-library.md
 
 ### Ghibli Style
 ```
-A young adventurer discovering a hidden forest spirit, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation --niji 6 --style scenic --ar 16:9 --s 500
+A young adventurer discovering a hidden forest spirit, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation --niji 6 --ar 16:9 --s 500
 ```
 
 ### Dark Fantasy
 ```
-A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework --niji 6 --style expressive --ar 2:3 --s 800
+A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework --niji 6 --ar 2:3 --s 800
 ```
 
 ### Magical Girl
 ```
-A magical girl mid-transformation with sparkles, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors --niji 6 --style cute --ar 9:16 --s 600
+A magical girl mid-transformation with sparkles, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors --niji 6 --ar 9:16 --s 600
 ```
 
 ### With SREF Code
 ```
-A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --ar 16:9 --sref 3408846050 --sw 300
 ```
 
 ### Character Reference Sheet
@@ -178,7 +176,7 @@ character reference sheet, young female sorcerer with long silver hair and purpl
 
 ### Using Character Reference
 ```
-A sorcerer casting a spell in a magical forest --niji 6 --style expressive --ar 16:9 --cref [URL] --cw 100
+A sorcerer casting a spell in a magical forest --niji 6 --ar 16:9 --cref [URL] --cw 100
 ```
 
 ## Character Consistency

@@ -93,15 +93,14 @@ Ask the user to describe:
 
 ### Step 4: Technical Options
 
-Ask about Niji style mode:
+> **Note**: Niji 6 uses a default anime style. The only optional style is `--style raw` for less stylized, more literal output. Style modes like cute/expressive/scenic/original are only available in Niji 5.
+
+Ask about style preference:
 ```
-Question: "Which Niji style mode?"
+Question: "Would you like to use raw mode for less stylized output?"
 Options:
-- Default (balanced anime aesthetic)
-- Cute (kawaii, adorable, whimsical)
-- Expressive (mature, dramatic, emotional)
-- Scenic (environmental focus, beautiful backgrounds)
-- Original (classic anime look)
+- Default (standard Niji 6 anime aesthetic)
+- Raw (--style raw, less stylized, more literal to prompt)
 ```
 
 Ask about aspect ratio:
@@ -420,10 +419,7 @@ neon lights, rain, holographic displays, cybernetic, dystopian cityscape, night 
 | Parameter | Description |
 |-----------|-------------|
 | `--niji 6` | Always include for anime style |
-| `--style cute` | Kawaii, adorable characters |
-| `--style expressive` | Mature, dramatic, emotional |
-| `--style scenic` | Environmental focus, landscapes |
-| `--style original` | Classic anime aesthetic |
+| `--style raw` | Less stylized, more literal output (optional) |
 | `--ar` | Aspect ratio |
 | `--s` | Stylize (0-1000, default 100) |
 | `--sref` | Style reference code |
@@ -431,6 +427,8 @@ neon lights, rain, holographic displays, cybernetic, dystopian cityscape, night 
 | `--cref` | Character reference |
 | `--cw` | Character weight (0-100) |
 | `--video` | Enable video generation (web app only) |
+
+> **Version Note**: Style modes (`--style cute`, `--style expressive`, `--style scenic`, `--style original`) are only available in **Niji 5**. Niji 6 only supports default or `--style raw`.
 
 ### Video Parameters
 
@@ -495,57 +493,57 @@ neon lights, rain, holographic displays, cybernetic, dystopian cityscape, night 
 
 ### Studio Ghibli Style
 ```
-A young adventurer discovering a hidden forest spirit among ancient trees, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation, soft dappled lighting, magical realism --niji 6 --style scenic --ar 16:9 --s 500
+A young adventurer discovering a hidden forest spirit among ancient trees, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation, soft dappled lighting, magical realism --niji 6 --ar 16:9 --s 500
 ```
 
 ### Cyberpunk (Otomo/Akira)
 ```
-A courier on a futuristic motorcycle racing through neon-lit Neo Tokyo streets at night, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery, dystopian cityscape --niji 6 --style expressive --ar 21:9 --s 750
+A courier on a futuristic motorcycle racing through neon-lit Neo Tokyo streets at night, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery, dystopian cityscape --niji 6 --ar 21:9 --s 750
 ```
 
 ### Dark Fantasy (Miura/Berserk)
 ```
-A lone warrior in black armor facing a massive demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework, dramatic chiaroscuro lighting, atmospheric fog --niji 6 --style expressive --ar 2:3 --s 800
+A lone warrior in black armor facing a massive demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework, dramatic chiaroscuro lighting, atmospheric fog --niji 6 --ar 2:3 --s 800
 ```
 
 ### Magical Girl (Takeuchi)
 ```
-A magical girl mid-transformation with sparkles and ribbons spiraling around her, Sailor Moon style, Naoko Takeuchi, magical girl, sparkling effects, pastel colors, cosmic background, dynamic pose --niji 6 --style cute --ar 9:16 --s 600
+A magical girl mid-transformation with sparkles and ribbons spiraling around her, Sailor Moon style, Naoko Takeuchi, magical girl, sparkling effects, pastel colors, cosmic background, dynamic pose --niji 6 --ar 9:16 --s 600
 ```
 
 ### JoJo Style (Araki)
 ```
-A stylish character in flamboyant clothing striking a dramatic pose with menacing aura, JoJo's Bizarre Adventure style, Hirohiko Araki, fashion-forward, muscular, baroque, intense expression --niji 6 --style expressive --ar 3:4 --s 700
+A stylish character in flamboyant clothing striking a dramatic pose with menacing aura, JoJo's Bizarre Adventure style, Hirohiko Araki, fashion-forward, muscular, baroque, intense expression --niji 6 --ar 3:4 --s 700
 ```
 
 ### Horror (Junji Ito)
 ```
-A figure encountering an impossible spiral staircase descending into darkness, Junji Ito style, horror manga, surreal, disturbing, intricate linework, psychological dread, uncanny --niji 6 --style original --ar 2:3 --s 800
+A figure encountering an impossible spiral staircase descending into darkness, Junji Ito style, horror manga, surreal, disturbing, intricate linework, psychological dread, uncanny --niji 6 --ar 2:3 --s 800
 ```
 
 ### Modern Shonen (MAPPA)
 ```
-A sorcerer unleashing cursed energy in an explosive battle pose, Jujutsu Kaisen style, MAPPA studio, modern shonen, dynamic action, dark blue and purple energy effects, intense expression --niji 6 --style expressive --ar 16:9 --s 600
+A sorcerer unleashing cursed energy in an explosive battle pose, Jujutsu Kaisen style, MAPPA studio, modern shonen, dynamic action, dark blue and purple energy effects, intense expression --niji 6 --ar 16:9 --s 600
 ```
 
 ### Slice of Life (Kyoto Animation)
 ```
-A high school girl gazing out a classroom window at cherry blossoms, Kyoto Animation style, slice of life, soft afternoon lighting, detailed eyes, peaceful atmosphere, beautiful background --niji 6 --style scenic --ar 16:9 --s 400
+A high school girl gazing out a classroom window at cherry blossoms, Kyoto Animation style, slice of life, soft afternoon lighting, detailed eyes, peaceful atmosphere, beautiful background --niji 6 --ar 16:9 --s 400
 ```
 
 ### Retro 80s Anime
 ```
-A space pilot in a vintage cockpit with analog displays and warning lights, 80s anime style, retro anime, Leiji Matsumoto influence, space opera, cel-shaded, film grain, nostalgic --niji 6 --style original --ar 4:3 --s 500
+A space pilot in a vintage cockpit with analog displays and warning lights, 80s anime style, retro anime, Leiji Matsumoto influence, space opera, cel-shaded, film grain, nostalgic --niji 6 --ar 4:3 --s 500
 ```
 
 ### With SREF Code (Ghibli Style)
 ```
-A young girl walking through a sunlit meadow filled with wildflowers, Studio Ghibli style, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+A young girl walking through a sunlit meadow filled with wildflowers, Studio Ghibli style, magical realism, soft lighting --niji 6 --ar 16:9 --sref 3408846050 --sw 300
 ```
 
 ### With SREF Code (Dark Fantasy)
 ```
-A knight standing before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --style expressive --ar 2:3 --sref 416523183 --sw 400
+A knight standing before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --ar 2:3 --sref 416523183 --sw 400
 ```
 
 ### Character Reference Sheet (Multi-view)
@@ -560,12 +558,12 @@ expression sheet, young female mage with long silver hair and purple eyes, multi
 
 ### Using Character Reference (Full)
 ```
-A young mage casting a spell in a magical forest, purple energy swirling, dramatic lighting --niji 6 --style expressive --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 100
+A young mage casting a spell in a magical forest, purple energy swirling, dramatic lighting --niji 6 --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 100
 ```
 
 ### Using Character Reference (Outfit Change)
 ```
-A young mage in casual modern clothes at a coffee shop, relaxed pose, slice of life --niji 6 --style cute --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 50
+A young mage in casual modern clothes at a coffee shop, relaxed pose, slice of life --niji 6 --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 50
 ```
 
 ### Animation - Action Scene
@@ -599,11 +597,8 @@ A young mage in casual modern clothes at a coffee shop, relaxed pose, slice of l
 
 1. **Always use --niji 6** for anime art
 2. **Front-load artist/studio names** - they have strong influence
-3. **Match style mode to genre**:
-   - Cute: Shoujo, slice of life, kawaii
-   - Expressive: Shonen, seinen, action, drama
-   - Scenic: Ghibli, backgrounds, landscapes
-   - Original: Retro, classic anime aesthetic
+3. **Use `--style raw` when needed**: For less stylized, more literal output (otherwise Niji 6 uses default anime style)
+   - Note: Style modes (cute/expressive/scenic/original) require Niji 5
 4. **Keep under 60 words** for best results
 5. **Use genre keywords** to reinforce the style
 6. **Stylize values**:

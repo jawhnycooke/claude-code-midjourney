@@ -203,7 +203,7 @@ Generate image with artist style, then animate:
 
 ```
 # Step 1: Generate image
-A warrior in dark armor, Kentaro Miura style, Berserk, dark fantasy --niji 6 --style expressive --ar 16:9
+A warrior in dark armor, Kentaro Miura style, Berserk, dark fantasy --niji 6 --ar 16:9
 
 # Step 2: Animate (on web app)
 [Generated Image URL] cape flowing dramatically, wind effect, atmospheric, medium motion --video
@@ -215,7 +215,7 @@ SREF codes apply to image generation, not video. Generate styled image first:
 
 ```
 # Step 1: Generate with SREF
-A magical forest spirit, ethereal glow --niji 6 --style scenic --ar 16:9 --sref 3408846050
+A magical forest spirit, ethereal glow --niji 6 --ar 16:9 --sref 3408846050
 
 # Step 2: Animate
 [Generated Image URL] magical particles floating, gentle movement, ethereal --video

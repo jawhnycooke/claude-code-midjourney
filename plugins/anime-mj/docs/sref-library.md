@@ -135,11 +135,8 @@ Contemporary anime aesthetics with polished, clean execution.
 
 1. **Start with --sw 100** - Default weight, then adjust up/down
 2. **Combine SREF with artist styles** - "Kentaro Miura style --sref 416523183" amplifies the aesthetic
-3. **Match SREF to --style mode**:
-   - Ghibli/Soft codes → `--style scenic`
-   - Shonen/Dynamic codes → `--style expressive`
-   - Shoujo codes → `--style cute`
-   - Dark codes → `--style expressive` or `--style original`
+3. **Niji 6 uses default anime style** - Add `--style raw` only for less stylized output
+   - Note: Style modes (cute/expressive/scenic/original) require Niji 5
 4. **Test codes first** - Generate a simple prompt to see the style before complex scenes
 5. **Blend sparingly** - 2 codes max for predictable results
 
@@ -168,20 +165,20 @@ For thousands more SREF codes:
 
 ### Ghibli Scenic
 ```
-A young girl discovering a hidden forest spirit among ancient trees, Hayao Miyazaki style, magical realism, lush vegetation --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+A young girl discovering a hidden forest spirit among ancient trees, Hayao Miyazaki style, magical realism, lush vegetation --niji 6 --ar 16:9 --sref 3408846050 --sw 300
 ```
 
 ### Dark Fantasy
 ```
-A lone warrior facing a demon in gothic ruins, Kentaro Miura style, dark fantasy, atmospheric fog --niji 6 --style expressive --ar 2:3 --sref 416523183 --sw 400
+A lone warrior facing a demon in gothic ruins, Kentaro Miura style, dark fantasy, atmospheric fog --niji 6 --ar 2:3 --sref 416523183 --sw 400
 ```
 
 ### 90s Retro Cyberpunk
 ```
-A hacker in neon-lit Tokyo streets, Akira influence, cyberpunk, rain reflections --niji 6 --style original --ar 21:9 --sref 16809792746 --sw 350
+A hacker in neon-lit Tokyo streets, Akira influence, cyberpunk, rain reflections --niji 6 --ar 21:9 --sref 16809792746 --sw 350
 ```
 
 ### Magical Girl
 ```
-A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, cosmic background --niji 6 --style cute --ar 9:16 --sref 2178024008 --sw 250
+A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, cosmic background --niji 6 --ar 9:16 --sref 2178024008 --sw 250
 ```

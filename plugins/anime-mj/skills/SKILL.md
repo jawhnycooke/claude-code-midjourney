@@ -68,7 +68,7 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 ### Niji Parameters
 
 - `--niji 6` (required for anime)
-- `--style cute/expressive/scenic/original`
+- `--style raw` (optional, less stylized output)
 - `--ar` (aspect ratio)
 - `--s` (stylize 0-1000)
 - `--sref` (style reference)
@@ -77,7 +77,8 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 - `--cw` (character weight 0-100)
 - `--oref` (omni reference, V7)
 - `--video` (enable video generation, web app only)
-- `--raw` (precise motion control for video)
+
+> **Note**: Style modes (`--style cute`, `--style expressive`, `--style scenic`, `--style original`) are only available in **Niji 5**. Niji 6 uses default anime style or `--style raw`.
 
 ### Character Consistency Support
 
@@ -161,32 +162,32 @@ Construct and output the ready-to-use Niji prompt.
 
 ### Ghibli Style
 ```
-A young adventurer discovering a hidden forest spirit, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation, magical realism --niji 6 --style scenic --ar 16:9 --s 500
+A young adventurer discovering a hidden forest spirit, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation, magical realism --niji 6 --ar 16:9 --s 500
 ```
 
 ### Dark Fantasy
 ```
-A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework, atmospheric --niji 6 --style expressive --ar 2:3 --s 800
+A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework, atmospheric --niji 6 --ar 2:3 --s 800
 ```
 
 ### Magical Girl
 ```
-A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors, cosmic background --niji 6 --style cute --ar 9:16 --s 600
+A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors, cosmic background --niji 6 --ar 9:16 --s 600
 ```
 
 ### Cyberpunk
 ```
-A courier on a motorcycle through neon-lit streets, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery --niji 6 --style expressive --ar 21:9 --s 750
+A courier on a motorcycle through neon-lit streets, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery --niji 6 --ar 21:9 --s 750
 ```
 
 ### With SREF Code (Ghibli)
 ```
-A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --style scenic --ar 16:9 --sref 3408846050 --sw 300
+A girl walking through a sunlit meadow, magical realism, soft lighting --niji 6 --ar 16:9 --sref 3408846050 --sw 300
 ```
 
 ### With SREF Code (Dark)
 ```
-A knight before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --style expressive --ar 2:3 --sref 416523183 --sw 400
+A knight before an ancient demon gate, dark fantasy, gothic atmosphere --niji 6 --ar 2:3 --sref 416523183 --sw 400
 ```
 
 ### Character Reference Sheet
@@ -196,7 +197,7 @@ character reference sheet, young female sorcerer with long silver hair and purpl
 
 ### Using Character Reference
 ```
-A young sorcerer casting a spell in a magical forest, purple energy swirling, dramatic lighting --niji 6 --style expressive --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 100
+A young sorcerer casting a spell in a magical forest, purple energy swirling, dramatic lighting --niji 6 --ar 16:9 --cref https://cdn.discordapp.com/attachments/... --cw 100
 ```
 
 ### Animation - Action
@@ -218,10 +219,7 @@ A young sorcerer casting a spell in a magical forest, purple energy swirling, dr
 
 1. **Always use --niji 6** for anime generation
 2. **Front-load artist names** - they strongly influence output
-3. **Match style mode to genre**:
-   - Cute: Shoujo, kawaii, slice of life
-   - Expressive: Shonen, seinen, action
-   - Scenic: Ghibli, landscapes, backgrounds
-   - Original: Retro, classic anime
+3. **Use `--style raw` when needed**: For less stylized, more literal output (Niji 6 uses default anime style otherwise)
+   - Note: Style modes (cute/expressive/scenic/original) require Niji 5
 4. **Keep prompts under 60 words** for best results
 5. **Use genre keywords** to reinforce the aesthetic
