@@ -1,0 +1,119 @@
+---
+name: anime-mj-prompt-builder
+description: Generates anime/manga prompts for Midjourney Niji mode with 30+ artist styles
+---
+
+# Anime/Manga Prompt Builder Skill
+
+This skill helps users create authentic anime and manga art using Midjourney's Niji mode. It features comprehensive knowledge of 30+ manga artists, 14 anime studios, multiple genres, and technical Niji parameters.
+
+## When to Activate This Skill
+
+Use this skill when users:
+
+1. **Request anime or manga art** - "Create anime art of...", "Draw a manga character..."
+2. **Mention anime artists** - "Ghibli style", "like Berserk", "Dragon Ball look"
+3. **Ask about Niji mode** - "How do I use Niji?", "Anime settings in Midjourney"
+4. **Want specific anime styles** - "magical girl", "shonen action", "cyberpunk anime"
+5. **Reference anime studios** - "MAPPA style", "Kyoto Animation look", "Trigger aesthetic"
+6. **Describe anime genres** - "seinen dark fantasy", "shoujo romance", "isekai adventure"
+
+## When NOT to Activate
+
+Do not use this skill when:
+
+- Users want photorealistic or non-anime images
+- Users are working on code unrelated to image generation
+- Users are asking about other AI tools (DALL-E, Stable Diffusion)
+- The request is for Western cartoon styles (not anime)
+
+## Core Capabilities
+
+### Supported Artists (30+)
+
+**Foundational**: Osamu Tezuka, Leiji Matsumoto, Go Nagai
+
+**Shonen**: Akira Toriyama, Eiichiro Oda, Masashi Kishimoto, Tatsuki Fujimoto, Hajime Isayama, Gege Akutami, Kohei Horikoshi
+
+**Seinen**: Kentaro Miura, Katsuhiro Otomo, Naoki Urasawa, Junji Ito, Tsutomu Nihei, Takehiko Inoue
+
+**Shoujo/Josei**: Naoko Takeuchi, CLAMP, Rumiko Takahashi, Ai Yazawa
+
+**Directors**: Hayao Miyazaki, Makoto Shinkai, Hideaki Anno, Satoshi Kon, Mamoru Hosoda, Hiroyuki Imaishi
+
+**Modern**: Hirohiko Araki, ONE, Yusuke Murata, Sui Ishida, Yoshitoshi Abe
+
+### Supported Studios (14)
+
+Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Trigger, Shaft, Production I.G, Sunrise, Toei Animation, A-1 Pictures, CloverWorks
+
+### Genres
+
+- **Shonen** - Action, adventure, battles
+- **Seinen** - Mature, dark, psychological
+- **Shoujo** - Romance, magical girl
+- **Slice of Life** - Everyday, school, heartwarming
+- **Mecha** - Robots, sci-fi
+- **Horror** - Dark, disturbing
+- **Isekai** - Fantasy worlds
+- **Cyberpunk** - Dystopian, neon
+
+### Niji Parameters
+
+- `--niji 6` (required for anime)
+- `--style cute/expressive/scenic/original`
+- `--ar` (aspect ratio)
+- `--s` (stylize 0-1000)
+- `--sref` (style reference)
+- `--cref` (character reference)
+
+## Interaction Pattern
+
+### Step 1: Identify Genre
+Determine if the request is shonen, seinen, shoujo, slice of life, mecha, or horror.
+
+### Step 2: Match Artist/Studio
+Suggest relevant artists or studios based on the genre and description.
+
+### Step 3: Gather Details
+Ask about character, scene, action, and atmosphere.
+
+### Step 4: Technical Options
+Determine Niji style mode and aspect ratio.
+
+### Step 5: Build Prompt
+Construct and output the ready-to-use Niji prompt.
+
+## Example Outputs
+
+### Ghibli Style
+```
+A young adventurer discovering a hidden forest spirit, Studio Ghibli style, Hayao Miyazaki, whimsical, enchanting, lush vegetation, magical realism --niji 6 --style scenic --ar 16:9 --s 500
+```
+
+### Dark Fantasy
+```
+A lone warrior facing a demon in a gothic cathedral, Berserk style, Kentaro Miura, dark fantasy, hyper-detailed linework, atmospheric --niji 6 --style expressive --ar 2:3 --s 800
+```
+
+### Magical Girl
+```
+A magical girl mid-transformation with sparkles and ribbons, Sailor Moon style, Naoko Takeuchi, magical girl, pastel colors, cosmic background --niji 6 --style cute --ar 9:16 --s 600
+```
+
+### Cyberpunk
+```
+A courier on a motorcycle through neon-lit streets, Akira style, Katsuhiro Otomo, cyberpunk, rain reflections, intricate machinery --niji 6 --style expressive --ar 21:9 --s 750
+```
+
+## Key Principles
+
+1. **Always use --niji 6** for anime generation
+2. **Front-load artist names** - they strongly influence output
+3. **Match style mode to genre**:
+   - Cute: Shoujo, kawaii, slice of life
+   - Expressive: Shonen, seinen, action
+   - Scenic: Ghibli, landscapes, backgrounds
+   - Original: Retro, classic anime
+4. **Keep prompts under 60 words** for best results
+5. **Use genre keywords** to reinforce the aesthetic
