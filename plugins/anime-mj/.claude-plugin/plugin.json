@@ -1,8 +1,11 @@
 {
   "name": "anime-mj",
+  "description": "Anime/manga prompt builder for Midjourney Niji mode. Features 30+ manga artists, 14 anime studios, 40+ SREF codes, character consistency workflows, and video/animation support.",
+  "author": {
+    "name": "Jawhny Cooke",
+    "email": "plugins@jawhnycooke.ai"
+  },
   "version": "1.0.0",
-  "description": "Anime/manga prompt builder for Midjourney Niji mode. Features 30+ manga artists (Miyazaki, Otomo, Toriyama, Miura, etc.), 14 anime studios, and comprehensive style support for creating authentic anime art.",
-  "author": "Jawhny Cooke",
   "keywords": [
     "anime",
     "manga",
@@ -11,13 +14,8 @@
     "ghibli",
     "shonen",
     "seinen",
+    "sref",
     "prompt-engineering",
     "ai-art"
-  ],
-  "homepage": "https://github.com/jawhnycooke/claude-code-anime-mj",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jawhnycooke/claude-code-anime-mj.git"
-  },
-  "license": "MIT"
+  ]
 }

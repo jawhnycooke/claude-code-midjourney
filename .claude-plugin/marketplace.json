@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "aws-claude-code-plugins",
+  "description": "Anime/manga prompt builder for Midjourney Niji mode - 30+ artists, 14 studios, SREF codes",
+  "owner": {
+    "name": "Jawhny Cooke",
+    "email": "plugins@jawhnycooke.ai"
+  },
+  "plugins": [
+    {
+      "name": "anime-mj",
+      "description": "Generate optimized anime/manga prompts for Midjourney Niji mode with 30+ artist styles, 14 studio aesthetics, and curated SREF codes",
+      "author": {
+        "name": "Jawhny Cooke",
+        "email": "plugins@jawhnycooke.ai"
+      },
+      "source": "./plugins/anime-mj",
+      "homepage": "https://github.com/jawhnycooke/claude-code-anime-mj/tree/main/plugins/anime-mj"
+    }
+  ]
+}
