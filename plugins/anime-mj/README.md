@@ -245,15 +245,30 @@ Animate your anime images using Midjourney's V1 video model. See [docs/video-ani
 
 ### Animation Examples
 
+When animating, the plugin outputs TWO prompts - one for image generation, one for animation with `[Animation]` and `[Camera]` sections:
+
+**Action Scene (Maximum structure)**
+
+*Image Prompt:*
 ```
-# Action scene
-[Image URL] dynamic camera tracking, speed lines effect, impact frame --motion high
+[Character] cyberpunk hacker | [Expression] hollow eyes | [Pose] crouched | [Action] typing frantically | [Props] holographic displays | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold colors --niji 6 --ar 2:3 --s 800 --sref 416523183 --sw 500
+```
 
-# Peaceful moment
-[Image URL] gentle breeze through hair, soft fabric movement, peaceful atmosphere --motion low --raw
+*Animation Prompt* (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] cyberpunk hacker | [Expression] hollow eyes | [Pose] crouched | [Action] typing frantically | [Props] holographic displays | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold colors | [Animation] neon flickering, holographic glitches | [Camera] static --motion low --loop --raw
+```
 
-# Seamless loop
-[Image URL] hair gently swaying, soft breathing motion --motion low --loop --raw
+**Peaceful Loop (Standard structure)**
+
+*Image Prompt:*
+```
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting --niji 6 --ar 16:9 --sref 3408846050 --sw 300
+```
+
+*Animation Prompt* (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting | [Animation] hair swaying, wildflowers dancing | [Camera] static --motion low --loop --raw
 ```
 
 ## Documentation

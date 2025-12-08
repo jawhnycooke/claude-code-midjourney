@@ -208,42 +208,96 @@ Create seamless looping animations where the end frame matches the start.
 - Hair, cloth, and breathing work well
 - Circular/orbital motions create natural loops
 
+## Integrated Prompt Format
+
+When using the anime-mj plugin with animation, you get TWO structured prompts:
+
+1. **Image Prompt** - Full structured prompt with image parameters (`--niji 6`, `--ar`, `--sref`)
+2. **Animation Prompt** - Same structure + `[Animation]` + `[Camera]` with video parameters only (`--motion`, `--loop`, `--raw`)
+
+### Animation Sections
+
+| Section | Content |
+|---------|---------|
+| `[Animation]` | What moves - flickering, swaying, breathing, glitching |
+| `[Camera]` | Camera motion - orbits, pans, zooms, static |
+
+### Animation Keywords by Style
+
+| Style | Animation Keywords | Camera Keywords |
+|-------|-------------------|-----------------|
+| Action | speed lines, impact frames, dynamic movement | tracking shot, fast pan |
+| Peaceful | gentle breeze, hair swaying, subtle breathing | static, slow zoom |
+| Dramatic | flickering lights, emotional intensity | slow push, orbit |
+| Horror | glitching, unsettling movement, shadows creeping | static, slow zoom |
+| Loop | seamless motion, cyclical movement | static, orbit |
+
+### Example: Cyberpunk Horror (Maximum Structure)
+
+**Image Prompt:**
+```
+[Character] cyberpunk hacker, disheveled appearance, unsettling gaze | [Expression] hollow eyes, disturbing smile | [Pose] crouched over terminal | [Action] typing frantically | [Props] holographic displays, glitching screens | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold high-contrast colors, neon pink and cyan --niji 6 --ar 2:3 --s 800 --sref 416523183 --sw 500
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] cyberpunk hacker, disheveled appearance, unsettling gaze | [Expression] hollow eyes, disturbing smile | [Pose] crouched over terminal | [Action] typing frantically | [Props] holographic displays, glitching screens | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold high-contrast colors, neon pink and cyan | [Animation] neon signs flickering, holographic glitches, subtle breathing motion | [Camera] static --motion low --loop --raw
+```
+
+### Example: Magical Girl (Standard Structure)
+
+**Image Prompt:**
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation, graceful pose | [Scene] cosmic starry background | [Style] Sailor Moon, Naoko Takeuchi | [Genre] magical girl, shoujo | [Mood] soft pastel colors, glowing --niji 6 --ar 9:16 --s 600
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation, graceful pose | [Scene] cosmic starry background | [Style] Sailor Moon, Naoko Takeuchi | [Genre] magical girl, shoujo | [Mood] soft pastel colors, glowing | [Animation] sparkles swirling, ribbons flowing, celestial glow pulsing | [Camera] camera orbits around --motion high --loop
+```
+
 ## Integration with Anime-MJ Features
 
 ### With Artist Styles
 
-Generate image with artist style, then animate:
+Generate image with artist style, then animate using the integrated format:
 
+**Image Prompt:**
 ```
-# Step 1: Generate image
-A warrior in dark armor, Kentaro Miura style, Berserk, dark fantasy --niji 6 --ar 16:9
+[Character] warrior, dark armor | [Action] facing demon | [Scene] gothic cathedral | [Style] Berserk, Kentaro Miura | [Genre] dark fantasy | [Mood] dramatic shadows --niji 6 --ar 16:9 --s 800
+```
 
-# Step 2: Animate (on web app)
-[Generated Image URL] cape flowing dramatically, wind effect, atmospheric --motion low
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] warrior, dark armor | [Action] facing demon | [Scene] gothic cathedral | [Style] Berserk, Kentaro Miura | [Genre] dark fantasy | [Mood] dramatic shadows | [Animation] cape flowing, wind effects, atmospheric fog | [Camera] slow push --motion low
 ```
 
 ### With SREF Codes
 
 SREF codes apply to image generation, not video. Generate styled image first:
 
+**Image Prompt:**
 ```
-# Step 1: Generate with SREF
-A magical forest spirit, ethereal glow --niji 6 --ar 16:9 --sref 3408846050
+[Character] forest spirit | [Action] floating | [Scene] enchanted forest | [Style] Studio Ghibli | [Genre] magical realism | [Mood] ethereal glow --niji 6 --ar 16:9 --sref 3408846050 --sw 300
+```
 
-# Step 2: Animate
-[Generated Image URL] magical particles floating, gentle movement, ethereal --motion low
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] forest spirit | [Action] floating | [Scene] enchanted forest | [Style] Studio Ghibli | [Genre] magical realism | [Mood] ethereal glow | [Animation] magical particles floating, gentle movement | [Camera] static --motion low --raw
 ```
 
 ### With Character Reference
 
 Character reference is used during image generation, not video animation:
 
+**Image Prompt:**
 ```
-# Step 1: Generate image with character reference
-A mage casting a spell --niji 6 --ar 16:9 --cref [reference URL] --cw 100
+[Character] mage | [Action] casting spell | [Scene] magical forest | [Style] fantasy anime | [Genre] magical | [Mood] dramatic lighting --niji 6 --ar 16:9 --cref [URL] --cw 100
+```
 
-# Step 2: Animate the generated image
-[Generated Image URL] magical energy swirling, dramatic lighting --motion low
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] mage | [Action] casting spell | [Scene] magical forest | [Style] fantasy anime | [Genre] magical | [Mood] dramatic lighting | [Animation] magical energy swirling, robes flowing | [Camera] slow orbit --motion low
 ```
 
 ## Motion Level Guide
@@ -267,40 +321,54 @@ Use the `--motion` parameter:
 
 ## Example Prompts
 
+The following examples use the integrated prompt format with `[Animation]` and `[Camera]` sections.
+
 ### Action Scene
 
+**Image Prompt:**
 ```
-[Image URL] dynamic camera tracking, speed lines effect, impact frame --motion high
+[Character] warrior | [Action] mid-attack | [Scene] battlefield | [Style] shonen action | [Genre] action, dramatic | [Mood] intense lighting --niji 6 --ar 16:9 --s 700
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] warrior | [Action] mid-attack | [Scene] battlefield | [Style] shonen action | [Genre] action, dramatic | [Mood] intense lighting | [Animation] speed lines, impact frames, dynamic movement | [Camera] tracking shot --motion high
 ```
 
 ### Peaceful Moment
 
+**Image Prompt:**
 ```
-[Image URL] gentle breeze through hair, soft fabric movement, peaceful atmosphere --motion low --raw
-```
-
-### Dramatic Reveal
-
-```
-[Image URL] slow cinematic zoom to face, emotional intensity, dramatic lighting --motion low
+[Character] young girl | [Action] sitting by window | [Scene] sunlit room | [Style] slice of life | [Genre] peaceful | [Mood] soft warm lighting --niji 6 --ar 16:9 --s 400
 ```
 
-### Character Showcase
-
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
 ```
-[Image URL] camera slowly orbits around character, full body rotation, showcase pose --motion low
+[Character] young girl | [Action] sitting by window | [Scene] sunlit room | [Style] slice of life | [Genre] peaceful | [Mood] soft warm lighting | [Animation] gentle breeze through hair, soft fabric movement | [Camera] static --motion low --raw
 ```
 
 ### Seamless Loop
 
+**Image Prompt:**
 ```
-[Image URL] hair gently swaying, soft breathing motion --motion low --loop --raw
+[Character] magical girl | [Action] peaceful pose | [Scene] starry background | [Style] shoujo | [Genre] magical | [Mood] soft glow --niji 6 --ar 1:1 --s 500
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] magical girl | [Action] peaceful pose | [Scene] starry background | [Style] shoujo | [Genre] magical | [Mood] soft glow | [Animation] hair gently swaying, soft breathing motion | [Camera] static --motion low --loop --raw
 ```
 
 ### Combat Impact
 
+**Image Prompt:**
 ```
-[Image URL] fast motion blur, impact frame, explosive energy, dynamic camera shake --motion high
+[Character] fighter | [Action] delivering punch | [Scene] arena | [Style] shonen | [Genre] combat | [Mood] dramatic shadows --niji 6 --ar 16:9 --s 800
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] fighter | [Action] delivering punch | [Scene] arena | [Style] shonen | [Genre] combat | [Mood] dramatic shadows | [Animation] impact frame, explosive energy, motion blur | [Camera] fast shake --motion high
 ```
 
 ## Tips for Better Animation

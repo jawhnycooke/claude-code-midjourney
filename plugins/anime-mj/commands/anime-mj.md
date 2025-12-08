@@ -307,7 +307,33 @@ Construct the prompt using the selected structure level with ` | ` as section de
 [Character] who, appearance | [Expression] emotion | [Pose] body position | [Action] activity | [Props] items | [Setting] location | [Background] distant elements | [Artist] artist/studio | [Genre] anime genre | [Visual] lighting, colors, effects --parameters
 ```
 
-Output in a code block ready to paste.
+**With Animation (add to any structure level):**
+
+When user requests animation, append `[Animation]` and `[Camera]` sections to the prompt:
+
+| Section | Content |
+|---------|---------|
+| `[Animation]` | What moves - flickering, swaying, breathing, glitching |
+| `[Camera]` | Camera motion - orbits, pans, zooms, static |
+
+**Animation Keywords by Style:**
+
+| Style | Animation Keywords | Camera Keywords |
+|-------|-------------------|-----------------|
+| Action | speed lines, impact frames, dynamic movement | tracking shot, fast pan |
+| Peaceful | gentle breeze, hair swaying, subtle breathing | static, slow zoom |
+| Dramatic | flickering lights, emotional intensity | slow push, orbit |
+| Horror | glitching, unsettling movement, shadows creeping | static, slow zoom |
+| Loop | seamless motion, cyclical movement | static, orbit |
+
+**Output Format for Animation:**
+
+Output TWO prompts when user wants animation:
+
+1. **Image Prompt** - Full structure with image params (`--niji 6`, `--ar`, `--sref`)
+2. **Animation Prompt** - Same structure + `[Animation]` + `[Camera]` with video params only (`--motion`, `--loop`, `--raw`)
+
+Output in code blocks ready to paste.
 
 ---
 
@@ -576,18 +602,49 @@ These examples show simple user inputs and the structured prompts the plugin gen
 
 ### Animate an Image
 
-**You say**: "animate this image with action movement"
-**You pick**: Action motion style, Dynamic camera, High intensity
-**You get**:
+When animating, output TWO prompts - one for image generation, one for animation.
+
+**You say**: "cyberpunk hacker, animate with action movement"
+**You pick**: Seinen/Horror genre, Junji Ito, Dramatic aesthetic, 2:3 portrait, Action motion, Static camera, Low intensity, Loop, Maximum structure
+
+**Image Prompt:**
 ```
-[Your Image URL] dynamic camera tracking, speed lines effect, impact frame --motion high
+[Character] cyberpunk hacker, disheveled appearance, unsettling gaze | [Expression] hollow eyes, disturbing smile, psychological unease | [Pose] crouched over terminal, twisted posture | [Action] typing frantically, data streams corrupting | [Props] holographic displays, tangled cables, glitching screens | [Setting] neon-lit alley, wet pavement, cramped | [Background] dystopian cityscape, flickering signs, oppressive | [Artist] Junji Ito, horror manga | [Genre] cyberpunk horror, psychological terror, seinen | [Visual] bold high-contrast colors, neon pink and cyan, dramatic shadows, detailed linework --niji 6 --ar 2:3 --s 800 --sref 416523183 --sw 500
 ```
 
-**You say**: "make a peaceful loop animation"
-**You pick**: Slice-of-life motion, Static camera, Loop
-**You get**:
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
 ```
-[Your Image URL] gentle breeze, hair gently swaying, soft breathing motion --motion low --loop --raw
+[Character] cyberpunk hacker, disheveled appearance, unsettling gaze | [Expression] hollow eyes, disturbing smile, psychological unease | [Pose] crouched over terminal, twisted posture | [Action] typing frantically, data streams corrupting | [Props] holographic displays, tangled cables, glitching screens | [Setting] neon-lit alley, wet pavement, cramped | [Background] dystopian cityscape, flickering signs, oppressive | [Artist] Junji Ito, horror manga | [Genre] cyberpunk horror, psychological terror, seinen | [Visual] bold high-contrast colors, neon pink and cyan, dramatic shadows, detailed linework | [Animation] neon signs flickering, holographic glitches, subtle breathing motion, cables swaying | [Camera] static, subtle character animation only --motion low --loop --raw
+```
+
+---
+
+**You say**: "magical girl transformation, animate it with dramatic orbit"
+**You pick**: Shoujo genre, Naoko Takeuchi, Cute aesthetic, 9:16 portrait, Dramatic motion, Orbit camera, High intensity, Loop, Standard structure
+
+**Image Prompt:**
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation, graceful pose | [Scene] cosmic starry background | [Style] Sailor Moon, Naoko Takeuchi | [Genre] magical girl, shoujo | [Mood] soft pastel colors, glowing --niji 6 --ar 9:16 --s 600
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation, graceful pose | [Scene] cosmic starry background | [Style] Sailor Moon, Naoko Takeuchi | [Genre] magical girl, shoujo | [Mood] soft pastel colors, glowing | [Animation] sparkles swirling, ribbons flowing, celestial glow pulsing | [Camera] camera orbits around, dramatic slow rotation --motion high --loop
+```
+
+---
+
+**You say**: "peaceful meadow scene, make a gentle loop"
+**You pick**: Slice of Life, Studio Ghibli, Scenic aesthetic, 16:9 widescreen, Peaceful motion, Static camera, Low intensity, Loop, Standard structure
+
+**Image Prompt:**
+```
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow, wildflowers | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting, peaceful --niji 6 --ar 16:9 --sref 3408846050 --sw 300
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow, wildflowers | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting, peaceful | [Animation] hair gently swaying, wildflowers dancing in breeze, soft breathing | [Camera] static --motion low --loop --raw
 ```
 
 ---

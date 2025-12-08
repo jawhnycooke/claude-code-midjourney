@@ -217,19 +217,42 @@ Construct and output the structured Niji prompt using selected level.
 [Character] young sorcerer | [Action] casting spell, energy swirling | [Scene] magical forest | [Style] fantasy anime | [Genre] magical | [Mood] purple energy, dramatic lighting --niji 6 --ar 16:9 --cref [URL] --cw 100
 ```
 
-### Animation - Action
+### Animation - Action (Maximum structure)
+
+When animating, output TWO prompts - Image Prompt + Animation Prompt:
+
+**Image Prompt:**
 ```
-[Image URL] dynamic camera tracking, speed lines effect, impact frame --motion high
+[Character] cyberpunk hacker, unsettling gaze | [Expression] hollow eyes | [Pose] crouched over terminal | [Action] typing frantically | [Props] holographic displays, glitching screens | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold high-contrast colors --niji 6 --ar 2:3 --s 800 --sref 416523183 --sw 500
 ```
 
-### Animation - Peaceful
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
 ```
-[Image URL] gentle breeze through hair, soft fabric movement, peaceful atmosphere --motion low --raw
+[Character] cyberpunk hacker, unsettling gaze | [Expression] hollow eyes | [Pose] crouched over terminal | [Action] typing frantically | [Props] holographic displays, glitching screens | [Setting] neon-lit alley | [Background] dystopian cityscape | [Artist] Junji Ito | [Genre] cyberpunk horror | [Visual] bold high-contrast colors | [Animation] neon flickering, holographic glitches, cables swaying | [Camera] static --motion low --loop --raw
 ```
 
-### Animation - Loop
+### Animation - Peaceful Loop (Standard structure)
+
+**Image Prompt:**
 ```
-[Image URL] hair gently swaying, soft breathing motion --motion low --loop --raw
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow, wildflowers | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting, peaceful --niji 6 --ar 16:9 --sref 3408846050 --sw 300
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow, wildflowers | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting, peaceful | [Animation] hair gently swaying, wildflowers dancing in breeze, soft breathing | [Camera] static --motion low --loop --raw
+```
+
+### Animation - Dramatic Orbit (Standard structure)
+
+**Image Prompt:**
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation | [Scene] cosmic starry background | [Style] Sailor Moon | [Genre] magical girl, shoujo | [Mood] pastel colors, glowing --niji 6 --ar 9:16 --s 600
+```
+
+**Animation Prompt** (in web app, select the image you want to animate. In the "Animate Image" section choose "Animate Manually"):
+```
+[Character] magical girl, sparkling eyes | [Action] mid-transformation | [Scene] cosmic starry background | [Style] Sailor Moon | [Genre] magical girl, shoujo | [Mood] pastel colors, glowing | [Animation] sparkles swirling, ribbons flowing, celestial glow pulsing | [Camera] camera orbits around --motion high --loop
 ```
 
 ## Key Principles
