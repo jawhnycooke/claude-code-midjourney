@@ -65,9 +65,10 @@ Studio Ghibli, Kyoto Animation, MAPPA, Ufotable, WIT Studio, Bones, Madhouse, Tr
 - **Isekai** - Fantasy worlds
 - **Cyberpunk** - Dystopian, neon
 
-### Niji Parameters
+### Model & Parameters
 
-- `--niji 6` (required for anime)
+- `--niji 6` (default, recommended for traditional anime)
+- `--v 7` (alternative, works well with SREF + anime keywords)
 - `--style raw` (optional, less stylized output)
 - `--ar` (aspect ratio)
 - `--s` (stylize 0-1000)
@@ -257,10 +258,12 @@ When animating, output TWO prompts - Image Prompt + Animation Prompt:
 
 ## Key Principles
 
-1. **Always use --niji 6** for anime generation
+1. **Default to --niji 6** for anime generation (V7 native is also effective with SREF codes)
 2. **Front-load artist names** - they strongly influence output
 3. **Inject aesthetic keywords automatically** - based on user's aesthetic selection in Step 4
 4. **User picks simple options, you build rich prompts** - the plugin handles complexity
+
+> **Model Note**: All examples use `--niji 6` (Niji mode). For V7 native, simply omit `--niji 6` or replace with `--v 7`.
 
 ---
 

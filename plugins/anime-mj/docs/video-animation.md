@@ -4,6 +4,8 @@ Comprehensive guide to animating anime images using Midjourney's V1 video model.
 
 > **Important**: Video generation is available on the **Midjourney web app only** (midjourney.com). Discord bot does not support video generation.
 
+> **Model Note**: Animation works with images generated from both Niji 6 and V7 native. Examples show `--niji 6` but images created with `--v 7` can also be animated using the same workflow.
+
 ## Overview
 
 Midjourney's V1 video model transforms still images into animated clips. The workflow is **image-to-video**: generate your anime image first, then animate it.

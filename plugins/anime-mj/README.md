@@ -98,11 +98,12 @@ A Claude Code plugin that generates optimized anime and manga prompts for Midjou
 | Madhouse | Versatile, high quality |
 | Shaft | Avant-garde, stylized |
 
-## Niji Parameters
+## Model & Parameters
 
 | Parameter | Description |
 |-----------|-------------|
-| `--niji 6` | Required for anime style |
+| `--niji 6` | Niji anime model (default, recommended for traditional anime) |
+| `--v 7` | V7 native model (alternative, works well with SREF + anime keywords) |
 | `--style raw` | Less stylized, more literal output (optional) |
 | `--ar` | Aspect ratio |
 | `--s` | Stylize (0-1000) |
@@ -270,6 +271,8 @@ When animating, the plugin outputs TWO prompts - one for image generation, one f
 ```
 [Character] young girl | [Action] walking through meadow | [Scene] sunlit meadow | [Style] Studio Ghibli | [Genre] magical realism | [Mood] soft lighting | [Animation] hair swaying, wildflowers dancing | [Camera] static --motion low --loop --raw
 ```
+
+> **Model Note**: All examples use `--niji 6` (Niji mode). For V7 native, simply omit `--niji 6` or replace with `--v 7`. V7 produces excellent anime results when combined with SREF codes and anime-specific keywords.
 
 ## Documentation
 

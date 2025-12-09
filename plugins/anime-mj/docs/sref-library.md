@@ -1,6 +1,8 @@
 # SREF Code Library for Anime Styles
 
-A curated collection of Midjourney SREF (Style Reference) codes optimized for anime and manga art generation with Niji 6.
+A curated collection of Midjourney SREF (Style Reference) codes optimized for anime and manga art generation.
+
+> **Model Compatibility**: SREF codes work with both Niji 6 and V7 native. Examples show `--niji 6` but you can substitute `--v 7` for native model output.
 
 ## How to Use SREF Codes
 
